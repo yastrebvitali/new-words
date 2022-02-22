@@ -9,15 +9,17 @@ function NewWorks(name){
     this.isSelected = false;
 }
 
+//console.log('NewWorks.name=',new NewWorks('micha' ));
+
 function TodoList () {
 
-    this.NewWorks = [];
+    this.Task = [];
 
     /*----------------------------------------------------*/
     this.createTask = function(NewWorks){
-        document.querySelector('.newWorks').value
-        var result= new newWorks(document.querySelector('.newWorks').value);
-        return   result;
+        this.Task.push(  document.querySelector('.newWorks').value);
+        return this.Task;
+
     };
     /*----------------------------------------------------*/
     this.init= function (){
@@ -38,29 +40,34 @@ function TodoList () {
 
 };
 
-var btnCases= querySelector('.btnAdd');
-
-btnCases.addEventListener('click', () => {
-    tasks.push(new Task(enter_cases_input.value));
-
-});
 
 
+let todoList=new TodoList();
+console.log('todoList',todoList);
+let btnCases=document.querySelector('.btn');
+console.log('todoList.createTask()', todoList.createTask());
+
+btnCases.addEventListener('click',todoList.createTask());
 
 
-enter_cases_input.addEventListener('keyup', function (e) {
+
+
+
+
+
+/*enter_cases_input.addEventListener('keyup', function (e) {
     if (e.keyCode === 13) {
         tasks.push(new Task(enter_cases_input.value));
 
     }
-});
+});*/
 
-var result = new TodoList();
+//var result = new TodoList();
 
 //console.log(new Task('luk true ' , false));
 //console.log(new Task( 'morkov', true));
 
- console.log('result', result.createTask());
+
 
 
 
